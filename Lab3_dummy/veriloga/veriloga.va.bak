@@ -1,0 +1,77 @@
+// VerilogA for labs, Lab3_dummy, veriloga
+// Behavioral model of the differential amplifier.
+//
+//   Vd = Vin - Vref            (differential input)
+//   Vc = (Vin + Vref)/2        (common-mode input)
+//
+//   Hd(s) = Ad0 / (1 + s/wp)^2                 (2 poles, gain ~100)
+//   Hc(s) = Ac0 * (1 + s/wz) / (1 + s/wp)^2    (small CM gain, 1 zero)
+//
+//   Vout+ = Vdc + 0.5*Hd*Vd + Hc*(Vc - Vbias)
+//   Vout- = Vdc - 0.5*Hd*Vd + Hc*(Vc - Vbias)
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module Lab3_dummy(outn, outp, gnd, vdd, Ibias, in, ref);
+output outn;
+electrical outn;
+output outp;
+electrical outp;
+inout gnd;
+electrical gnd;
+inout vdd;
+electrical vdd;
+inout Ibias;          // inout (was input) because this model sinks the bias current
+electrical Ibias;
+input in;
+electrical in;
+input ref;
+electrical ref;
+
+// ---------------- design parameters (edit these) ----------------
+parameter real Av   = 0.0;      // original dummy parameter, unused, kept so the cell still netlists
+parameter real ad0  = 102;      // low-frequency differential gain (target 100, centered in +-10%)
+parameter real fp   = 5e6;      // each of the two poles [Hz] (valid window 3.7 - 6.2 MHz)
+parameter real ac0  = 1.0;      // low-frequency common-mode gain (budget: <= 1)
+parameter real fz   = 3e6;      // common-mode zero [Hz]
+parameter real vbias   = 1.2;   // input DC level; MUST equal the DC value on the input sources
+parameter real vdc_out = 1.6;   // output DC level on both outputs
+parameter real idd  = 0.0;      // static supply current [A], only for power estimates
+
+// ---------------- internal variables ----------------
+real wp, wz;    // pole and zero in rad/s
+real vd, vc;    // differential and common-mode input voltages
+real yd, yc;    // frequency-shaped differential and common-mode signals
+
+analog begin
+
+  // Hz -> rad/s
+  wp = 2.0 * `M_PI * fp;
+  wz = 2.0 * `M_PI * fz;
+
+  // Split the inputs into differential and common-mode parts
+  vd = V(in, gnd) - V(ref, gnd);
+  vc = 0.5 * (V(in, gnd) + V(ref, gnd));
+
+  // Differential path: Ad0/(1+s/wp)^2
+  // (1+s/wp)^2 = 1 + (2/wp)s + (1/wp^2)s^2 -> denominator {1, 2/wp, 1/wp^2}
+  yd = ad0 * laplace_nd(vd, {1.0}, {1.0, 2.0/wp, 1.0/(wp*wp)});
+
+  // Common-mode path: Ac0*(1+s/wz)/(1+s/wp)^2
+  // vbias is subtracted so only the AC part of Vc goes through the filter
+  yc = ac0 * laplace_nd(vc - vbias, {1.0, 1.0/wz}, {1.0, 2.0/wp, 1.0/(wp*wp)});
+
+  // Outputs: differential term has opposite signs, common-mode term the same sign
+  V(outp, gnd) <+ vdc_out + 0.5 * yd + yc;
+  V(outn, gnd) <+ vdc_out - 0.5 * yd + yc;
+
+  // Bias pin: absorb the 10uA from the ideal current source
+  V(Ibias, gnd) <+ 0.0;
+
+  // Supply pin: fixed DC current (0 by default)
+  I(vdd, gnd) <+ idd;
+
+end
+
+endmodule

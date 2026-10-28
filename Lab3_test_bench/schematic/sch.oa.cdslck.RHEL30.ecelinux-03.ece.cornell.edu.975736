@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      am699
+HostName                       ecelinux-03.ece.cornell.edu
+ProcessIdentifier              975736
+ProcessCreationTime_UTC        1792418214
+ProcessCreationTime_Readable   Mon Oct 19 09:56:54 2026 EDT
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /home/am699/ece4530/ECE4530_Lab3_F26/Lab3_test_bench/schematic/sch.oa.cdslck
+TimeEditLocked                 Mon Oct 19 15:13:54 2026 EDT
