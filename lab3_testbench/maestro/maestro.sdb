@@ -51,7 +51,23 @@
 					</var>
 				</vars>
 				<origoptions></origoptions>
-				<outputs></outputs>
+				<outputs>
+					<output>((OutP + OutN) / 2)
+						<evalType>point</evalType>
+					</output>
+					<output>(20 * log10(((OutP + OutN) / 2)))
+						<evalType>point</evalType>
+					</output>
+					<output>(20 * log10(((vfreq('ac "/out_p") + vfreq('ac "/out_n")) / 2)))
+						<evalType>point</evalType>
+					</output>
+					<output>(db(((OutP + OutN) / 2)))
+						<evalType>point</evalType>
+					</output>
+					<output>AvCMAC
+						<evalType>point</evalType>
+					</output>
+				</outputs>
 			</test>
 		</tests>
 		<extensions>
@@ -67,10 +83,10 @@
 		</checksasserts>
 		<plottingoptions>
 			<plottingoption>waveformtemplate
-				<value></value>
+				<value>(None)</value>
 			</plottingoption>
 			<plottingoption>plottingmode
-				<value>Replace</value>
+				<value>Append</value>
 			</plottingoption>
 			<plottingoption>plottype
 				<value>None</value>
@@ -79,7 +95,7 @@
 				<value>no</value>
 			</plottingoption>
 			<plottingoption>useMaestroPlottingTemplate
-				<value>no</value>
+				<value>yes</value>
 			</plottingoption>
 			<plottingoption>allplottingtemplates
 				<value></value>
@@ -90,10 +106,16 @@
 			<plottingoption>distributedplot_enabled
 				<value>no</value>
 			</plottingoption>
+			<plottingoption>autoplotmode
+				<value>Append</value>
+			</plottingoption>
 		</plottingoptions>
 		<exploreroptions>
 			<exploreroption>waveformtemplate
 				<value>(None)</value>
+			</exploreroption>
+			<exploreroption>autoplotmode
+				<value>Append</value>
 			</exploreroption>
 		</exploreroptions>
 		<incrementalsimsetup>
