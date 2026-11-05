@@ -12,10 +12,10 @@
 				<tool>ADE</tool>
 				<tooloptions>
 					<option>cell
-						<value>Lab3_test_bench</value>
+						<value>lab3_testbench</value>
 					</option>
 					<option>lib
-						<value>labs</value>
+						<value>lab3</value>
 					</option>
 					<option>path
 						<value>$AXL_SETUPDB_DIR</value>
@@ -32,10 +32,10 @@
 				</tooloptions>
 				<vars>
 					<var>AC_CM
-						<value>1</value>
+						<value>0</value>
 					</var>
 					<var>AC_DM
-						<value>0</value>
+						<value>1</value>
 					</var>
 					<var>F1
 						<value>1M</value>
@@ -50,35 +50,8 @@
 						<value>2.4</value>
 					</var>
 				</vars>
-				<outputs>
-					<output>Hd_dB
-						<evalType>point</evalType>
-					</output>
-					<output>d_phase
-						<evalType>point</evalType>
-					</output>
-					<output>Vid
-						<evalType>point</evalType>
-					</output>
-					<output>Voutp_ac
-						<evalType>point</evalType>
-					</output>
-					<output>Voutn_ac
-						<evalType>point</evalType>
-					</output>
-					<output>Hc_dB
-						<evalType>point</evalType>
-					</output>
-					<output>c_phase
-						<evalType>point</evalType>
-					</output>
-					<output>Voutp_trans
-						<evalType>point</evalType>
-					</output>
-					<output>Voutn_trans
-						<evalType>point</evalType>
-					</output>
-				</outputs>
+				<origoptions></origoptions>
+				<outputs></outputs>
 			</test>
 		</tests>
 		<extensions>
@@ -94,7 +67,7 @@
 		</checksasserts>
 		<plottingoptions>
 			<plottingoption>waveformtemplate
-				<value></value>
+				<value>(None)</value>
 			</plottingoption>
 			<plottingoption>plottingmode
 				<value>Replace</value>
@@ -106,7 +79,7 @@
 				<value>no</value>
 			</plottingoption>
 			<plottingoption>useMaestroPlottingTemplate
-				<value>no</value>
+				<value>yes</value>
 			</plottingoption>
 			<plottingoption>allplottingtemplates
 				<value></value>
@@ -130,6 +103,7 @@
 			<copyreferenceresults>1</copyreferenceresults>
 		</incrementalsimsetup>
 		<overwritehistoryname>ExplorerRun.0</overwritehistoryname>
+		<defaultreliabilitymode>Reliability</defaultreliabilitymode>
 	</active>
 	<history>History
 	</history>
