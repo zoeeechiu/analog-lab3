@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<statedb ICVersion="IC23.1-64b.ISR7.27" modifiedTime="11/04/2026 23:44:47" version="5">active
+<statedb ICVersion="IC23.1-64b.ISR7.27" modifiedTime="11/05/2026 00:04:36" version="5">active
 	<Test Name="ECE4530_2026_MP2_test_bench_1">
 		<component Name="adeInfo" Type="skillTable">adeinfo
 			<field Name="designInfo" Type="list">("lab3" "lab3_testbench" "schematic" "spectre")</field>
@@ -1107,12 +1107,12 @@
 			<field Name="saveComponent" Type="skillList">
 				<field Name="saveComponent_0" Type="defstruct">sevVariableStruct
 					<field Name="name" Type="string">"AC_CM"</field>
-					<field Name="expression" Type="string">"1"</field>
+					<field Name="expression" Type="string">"0"</field>
 					<field Name="index" Type="fixnum">1</field>
 				</field>
 				<field Name="saveComponent_1" Type="defstruct">sevVariableStruct
 					<field Name="name" Type="string">"AC_DM"</field>
-					<field Name="expression" Type="string">"0"</field>
+					<field Name="expression" Type="string">"1"</field>
 					<field Name="index" Type="fixnum">2</field>
 				</field>
 				<field Name="saveComponent_2" Type="defstruct">sevVariableStruct
@@ -1127,7 +1127,7 @@
 				</field>
 				<field Name="saveComponent_4" Type="defstruct">sevVariableStruct
 					<field Name="name" Type="string">"Vbias"</field>
-					<field Name="expression" Type="string">"1.2"</field>
+					<field Name="expression" Type="string">"1.4"</field>
 					<field Name="index" Type="fixnum">5</field>
 				</field>
 				<field Name="saveComponent_5" Type="defstruct">sevVariableStruct

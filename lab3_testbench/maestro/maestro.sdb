@@ -32,10 +32,10 @@
 				</tooloptions>
 				<vars>
 					<var>AC_CM
-						<value>1</value>
+						<value>0</value>
 					</var>
 					<var>AC_DM
-						<value>0</value>
+						<value>1</value>
 					</var>
 					<var>F1
 						<value>1M</value>
@@ -44,7 +44,7 @@
 						<value>50M</value>
 					</var>
 					<var>Vbias
-						<value>1.2</value>
+						<value>1.4</value>
 					</var>
 					<var>vdd
 						<value>2.4</value>
