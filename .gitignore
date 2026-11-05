@@ -1,0 +1,5 @@
+*.cdslck*
+.DS_Store
+*.bak
+*/maestro/results/
+*/maestro/history/
