@@ -32,10 +32,10 @@
 				</tooloptions>
 				<vars>
 					<var>AC_CM
-						<value>0</value>
+						<value>1</value>
 					</var>
 					<var>AC_DM
-						<value>1</value>
+						<value>0</value>
 					</var>
 					<var>F1
 						<value>1M</value>
@@ -67,7 +67,7 @@
 		</checksasserts>
 		<plottingoptions>
 			<plottingoption>waveformtemplate
-				<value>(None)</value>
+				<value></value>
 			</plottingoption>
 			<plottingoption>plottingmode
 				<value>Replace</value>
@@ -79,7 +79,7 @@
 				<value>no</value>
 			</plottingoption>
 			<plottingoption>useMaestroPlottingTemplate
-				<value>yes</value>
+				<value>no</value>
 			</plottingoption>
 			<plottingoption>allplottingtemplates
 				<value></value>
