@@ -32,7 +32,7 @@
 				</tooloptions>
 				<vars>
 					<var>AC_CM
-						<value>0</value>
+						<value>1</value>
 					</var>
 					<var>AC_DM
 						<value>1</value>
@@ -44,10 +44,13 @@
 						<value>50M</value>
 					</var>
 					<var>Vbias
-						<value>1.4</value>
+						<value>1.2</value>
 					</var>
 					<var>vdd
 						<value>2.4</value>
+					</var>
+					<var>r
+						<value>1:1:10</value>
 					</var>
 				</vars>
 				<origoptions></origoptions>
@@ -107,7 +110,7 @@
 				<value>no</value>
 			</plottingoption>
 			<plottingoption>autoplotmode
-				<value>Append</value>
+				<value>Replace</value>
 			</plottingoption>
 		</plottingoptions>
 		<exploreroptions>
@@ -115,7 +118,7 @@
 				<value>(None)</value>
 			</exploreroption>
 			<exploreroption>autoplotmode
-				<value>Append</value>
+				<value>Replace</value>
 			</exploreroption>
 		</exploreroptions>
 		<incrementalsimsetup>
